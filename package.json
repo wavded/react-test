@@ -1,0 +1,22 @@
+{
+  "name": "react",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "browserify": "^4.1.6",
+    "envify": "^1.2.1",
+    "fb-flo": "^0.1.0",
+    "react": "^0.10.0",
+    "reactify": "^0.13.1",
+    "watchify": "^0.10.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watchify": "watchify -t reactify app/main.js -o public/bundle.js",
+    "start": "npm run watchify & nodemon ."
+  },
+  "author": "",
+  "license": "ISC"
+}
