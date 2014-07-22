@@ -1,4 +1,4 @@
 {
   "verbose": false,
-  "ignore": [ "public", "node_modules", ".git", "app" ]
+  "ignore": [ "public", "node_modules", ".git", "clientapp" ]
 }

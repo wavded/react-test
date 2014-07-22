@@ -6,7 +6,6 @@ var server = flo(__dirname+'/public', {
   port: 8888
 }, function (filepath, cb) {
   var data = fs.readFileSync(path.join(__dirname,'/public/',filepath)).toString()
-  console.log(filepath, data)
   cb({
     resourceURL: path.basename(filepath),
     contents: data
@@ -14,5 +13,5 @@ var server = flo(__dirname+'/public', {
 })
 
 server.on('ready', function () {
-  console.log('ready!')
+  console.log('flo listening on port 8888')
 })

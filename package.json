@@ -4,16 +4,19 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "browserify": "^4.1.6",
+    "browserify": "^4.2.3",
+    "dispatchr": "^0.1.1",
     "leaflet": "^0.7.3",
-    "react": "^0.10.0",
-    "reactify": "^0.13.1",
+    "react": "^0.11.0",
+    "reactify": "^0.14.0",
     "watchify": "^0.10.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.2.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watchify": "watchify -t reactify clientapp/main.js -o public/bundle.js",
+    "watchify": "watchify -t [ reactify --es6 ] -v --debug clientapp/app.js -o public/bundle.js",
     "start": "npm run watchify & nodemon ."
   },
   "author": "",
