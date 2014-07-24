@@ -4,20 +4,22 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "browserify": "^4.2.3",
     "dispatchr": "^0.1.1",
-    "leaflet": "^0.7.3",
-    "react": "^0.11.0",
-    "reactify": "^0.14.0",
-    "watchify": "^0.10.1"
+    "react": "^0.11.0"
   },
   "devDependencies": {
-    "nodemon": "^1.2.1"
+    "nodemon": "^1.2.1",
+    "browserify": "^4.2.3",
+    "reactify": "^0.14.0",
+    "debowerify": "^0.8.1",
+    "watchify": "^0.10.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watchify": "watchify -t [ reactify --es6 ] -v --debug clientapp/app.js -o public/bundle.js",
-    "start": "npm run watchify & nodemon ."
+    "watch-js": "watchify -v -t [ reactify --es6 ] --debug clientapp -o public/bundle.js",
+    "watch-css": "nodemon -q -e less -w clientapp/styles --exec \"lessc -x --source-map --source-map-less-inline --source-map-map-inline --source-map-rootpath=`pwd`/clientapp/styles clientapp/styles/index.less\" public/bundle.css",
+    "watch-node": "nodemon -q --ignore public --ignore clientapp",
+    "start": "npm run watch-js & npm run watch-css & npm run watch-node"
   },
   "author": "",
   "license": "ISC"
