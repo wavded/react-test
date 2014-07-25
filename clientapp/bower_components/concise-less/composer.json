@@ -1,0 +1,28 @@
+{
+  "name": "concisecss/concise.css-less",
+  "description": "A lightweight front-end framework that provides functionality without the bloat.",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "http://concisecss.com",
+  "authors": [
+    {
+      "name": "Keenan Payne",
+      "email": "contact@keenanpayne.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/ConciseCSS/concise.css-less/issues"
+  },
+  "license": "MIT",
+  "replace": {
+    "concisecss/concise.css-less": "self.version"
+  }
+}

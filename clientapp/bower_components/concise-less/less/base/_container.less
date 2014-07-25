@@ -1,0 +1,16 @@
+.container(@boolean) when (@boolean = true) {
+  //------------------------------------
+  //  CONTAINER
+  //------------------------------------
+  .container { width: 90%; }
+
+  @media @small { .container { width: 620px; } }
+
+  @media @medium { .container { width: 768px; } }
+
+  @media @large { .container { width: 960px; } }
+
+  @media @extra-large { .container { width: 1140px; } }
+}
+
+.container(@use-container); 
