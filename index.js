@@ -1,6 +1,5 @@
 require('./flo')
 
-var express = require('express')
-var app = express()
-app.use(express.static('./public'))
-app.listen(3000)
+var mach = require('mach')
+var app = mach.file({ root: './public', index: true })
+mach.serve(app, 3000);
