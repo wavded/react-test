@@ -10,17 +10,19 @@
     "react-router": "^0.11.6"
   },
   "devDependencies": {
+    "6to5ify": "^3.1.2",
     "browserify": "^4.2.3",
     "debowerify": "^1.2.0",
     "less": "^2.2.0",
     "less-plugin-clean-css": "^1.4.0",
+    "node-lessify": "0.0.8",
     "nodemon": "^1.2.1",
     "reactify": "^0.17.1",
     "watchify": "^2.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-js": "watchify -v -t [ reactify --es6 ] --debug clientapp -o public/bundle.js",
+    "watch-js": "watchify -v -t 6to5ify --debug clientapp -o public/bundle.js",
     "watch-css": "nodemon -q -e less -w clientapp/styles --exec \"lessc --clean-css --source-map --source-map-less-inline --source-map-map-inline --source-map-rootpath=`pwd`/clientapp/styles clientapp/styles/index.less\" public/bundle.css",
     "watch-node": "nodemon -q --ignore public --ignore clientapp",
     "start": "npm run watch-js & npm run watch-css & npm run watch-node"

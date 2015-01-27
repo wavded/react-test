@@ -44,7 +44,6 @@ TimerStore.prototype.update = function () {
  * Resets the state of the store
  */
 TimerStore.prototype.reset = function (payload, done) {
-  console.log("HERE")
   this.timeSpent = this._prevTime = 0
   this._startDt = new Date()
   this.emit('update')
