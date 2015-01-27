@@ -9,6 +9,7 @@ var uglify = require('gulp-uglify')
 var source = require('vinyl-source-stream')
 var buffer = require('vinyl-buffer')
 var nodemon = require('nodemon')
+var browserSync = require('browser-sync')
 
 gulp.task('styles', function () {
   gulp.src('clientapp/styles/index.less')
@@ -19,6 +20,7 @@ gulp.task('styles', function () {
     .pipe(sourcemaps.write())
     .pipe(rename('bundle.css'))
     .pipe(gulp.dest('public'))
+    .pipe(browserSync.reload({ stream: true }))
 })
 
 gulp.task('scripts', function () {
@@ -35,14 +37,22 @@ gulp.task('scripts', function () {
   .pipe(gulp.dest('public'))
 })
 
-gulp.task('run', ['scripts', 'styles'], function() {
-  gulp.watch('clientapp/**/*.js', ['scripts'])
-  gulp.watch('clientapp/**/*.less', ['styles'])
+gulp.task('bs-reload', browserSync.reload)
 
-  nodemon({
-    script: './',
-    ext: 'noop'
-  }).on('restart', function() {
-    console.log('restarted!')
+gulp.task('run', ['scripts', 'styles'], function() {
+  gulp.watch('clientapp/**/*.js', ['scripts', 'bs-reload'])
+  gulp.watch('clientapp/**/*.less', ['styles'])
+  gulp.watch('public/*.html', ['bs-reload'])
+
+  browserSync({
+    server: {
+      baseDir: './public'
+    }
   })
+  // nodemon({
+  //   script: './',
+  //   ext: 'noop'
+  // }).on('restart', function() {
+  //   console.log('restarted!')
+  // })
 })
