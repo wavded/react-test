@@ -45,7 +45,7 @@ var Timer = React.createClass({
     return (
       <Paper zDepth={3} >
         <div style={style}>
-          <h3>Time spent on this page: {this.state.timeSpent}</h3>
+          <h3>Time spent on this page: <b>{this.state.timeSpent}</b></h3>
           <RaisedButton label="Reset" primary={true} onClick={this.onReset} />
         </div>
       </Paper>
