@@ -12,12 +12,9 @@
   "devDependencies": {
     "6to5ify": "^3.1.2",
     "browserify": "^4.2.3",
-    "debowerify": "^1.2.0",
     "less": "^2.2.0",
     "less-plugin-clean-css": "^1.4.0",
-    "node-lessify": "0.0.8",
     "nodemon": "^1.2.1",
-    "reactify": "^0.17.1",
     "watchify": "^2.2.1"
   },
   "scripts": {
