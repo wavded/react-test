@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
-
 var React = require('react')
+var { Paper, RaisedButton } = require('material-ui')
 
 var Timer = React.createClass({
 
@@ -38,11 +38,17 @@ var Timer = React.createClass({
    * The component to render
    */
   render: function() {
+    var style = {
+      textAlign: "center",
+      paddingBottom: "10px",
+    }
     return (
-      <div>
-        <div>Time spent on this page: {this.state.timeSpent}</div>
-        <button onClick={this.onReset}>Reset</button>
-      </div>
+      <Paper zDepth={3} >
+        <div style={style}>
+          <h3>Time spent on this page: {this.state.timeSpent}</h3>
+          <RaisedButton label="Reset" primary={true} onClick={this.onReset} />
+        </div>
+      </Paper>
     )
   },
 

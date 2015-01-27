@@ -1,6 +1,8 @@
 /** @jsx React.DOM */
 var React = require('react')
 var Dispatchr = require('dispatchr')()
+require('react-tap-event-plugin')()
+
 var Promise = global.Promise = require('bluebird')
 window.React = React // for debugging tools
 
@@ -17,7 +19,7 @@ var dispatcher = new Dispatchr({})
 dispatcher.rehydrate(context)
 
 var Timer = require('./components/Timer.react')
-React.renderComponent(
+React.render(
   <Timer dispatcher={dispatcher} />,
   document.getElementById('timerapp')
 )

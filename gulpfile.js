@@ -8,7 +8,6 @@ var browserify = require('browserify')
 var uglify = require('gulp-uglify')
 var source = require('vinyl-source-stream')
 var buffer = require('vinyl-buffer')
-var nodemon = require('nodemon')
 var browserSync = require('browser-sync')
 
 gulp.task('styles', function () {
@@ -29,30 +28,27 @@ gulp.task('scripts', function () {
     debug: true
   })
   .bundle()
+  .on('error', console.error)
   .pipe(source('bundle.js'))
   .pipe(buffer())
   .pipe(sourcemaps.init({ loadMaps: true }))
   .pipe(uglify())
   .pipe(sourcemaps.write())
   .pipe(gulp.dest('public'))
+  .pipe(browserSync.reload({ stream: true }))
 })
 
-gulp.task('bs-reload', browserSync.reload)
+gulp.task('bs-reload', function () {
+  browserSync.reload()
+})
 
 gulp.task('run', ['scripts', 'styles'], function() {
-  gulp.watch('clientapp/**/*.js', ['scripts', 'bs-reload'])
+  gulp.watch('clientapp/**/*.js', ['scripts'])
   gulp.watch('clientapp/**/*.less', ['styles'])
   gulp.watch('public/*.html', ['bs-reload'])
 
   browserSync({
-    server: {
-      baseDir: './public'
-    }
+    server: { baseDir: './public' },
+    open: false
   })
-  // nodemon({
-  //   script: './',
-  //   ext: 'noop'
-  // }).on('restart', function() {
-  //   console.log('restarted!')
-  // })
 })
