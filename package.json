@@ -1,13 +1,9 @@
 {
   "name": "react",
+  "private": true,
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
-  "browserify": {
-    "transform": [
-      "6to5ify"
-    ]
-  },
   "dependencies": {
     "bluebird": "^2.9.3",
     "material-ui": "^0.6.1",
@@ -37,7 +33,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp run"
+    "start": "gulp run",
+    "lint": "eslint clientapp"
   },
   "author": "",
   "license": "ISC"
