@@ -16,7 +16,7 @@ var Timer = React.createClass({
   render: function() {
     var style = {
       textAlign: "center",
-      paddingBottom: "10px",
+      paddingBottom: "10px"
     }
     return (
       <Paper zDepth={3} >
